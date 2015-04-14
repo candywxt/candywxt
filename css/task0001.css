@@ -1,6 +1,243 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#space{
+    height: 50px;
+}
 h1{color: blue}
 h2{font-size: 14px}
 p{font-size: 12px;
     color: yellow;
     background-color:black;}
-img{border: red 2px solid;}
+.icon{border: red 2px solid;}
+.main{
+    float: left;
+    width: 100%;
+    background-color: aqua;
+}
+.sub{
+    float: left;
+    width: 190px;
+    margin-left: -100%;
+    background-color: white;
+    position: relative;
+    left: -190px;
+}
+.extra{
+    float: left;
+    width: 230px;
+    margin-left: -230px;
+    background-color: blue;
+    position: relative;
+    right: -230px;
+}
+.lin{
+    float: left;
+    width: 100px;
+    margin-left: -100px;
+    position: relative;
+    right: -100px;
+}
+#bd{
+    height: 40px;
+    background-color: darkseagreen;
+    padding: 0 330px 0 190px;
+}
+#page{
+    background-color: brown;
+    width: 100%;
+    height: 100%;
+}
+#hd{
+    background-color: blueviolet;
+    width: 100%;
+    height: 40px;
+}
+#ft{
+    background-color: khaki;
+    width: 100%;
+    height: 30px;
+}
+.list_wrap{
+    width: 640px;
+    overflow: hidden;
+    background: #ccc;
+    margin-bottom: 20px;
+}
+.list_wrap ul{
+    margin-right: -10px;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    zoom:1;
+}
+.list_wrap ul li{
+    float: left;
+    width: 120px;
+    height: 120px;
+    margin: 0 10px 10px 0;  
+}
+.list_wrap ul li img{
+    height: 120px;
+    width: 120px;
+}
+.remove_margin_bottom ul{
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+ul.test1{
+    list-style: none;
+    background:#F4F8FC;
+    width: 390px;
+    margin: 20px;
+    border: 2px solid #d7e2ec;
+    border-radius: 3px;
+}
+ul.test1 li{
+    text-indent: 1.5em;
+    padding: 5px;
+    border-bottom: 1px dotted #d5d5d5;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: -1px;
+}
+.wrapper{
+    margin: 20px;
+}
+a:link,avisited{
+    text-decoration: none;
+}
+.wrapper ul{
+    overflow: hidden;
+}
+.wrapper ul li{
+    list-style-position: inside;
+    list-style-type: square;
+    margin-bottom: -1px;
+}
+.pop_up{
+    border: 1px solid #d5d5d5;
+    border-radius: 3px;
+    margin-top: 10px;
+    position: relative;
+}
+.pop_up .pop_up_triangle1{
+    border-color:transparent transparent red transparent;
+	border-style:dashed dashed solid;
+	border-width:7px;
+	font-size:0;
+	height:0;
+	left:7px;
+	line-height:0;
+	overflow:hidden;
+	position:absolute;
+	top:-14px;
+	width:0;
+}
+.pop_up .pop_up_bd{
+    background: none repeat scroll 0 0 #f4f8fc;
+    padding: 5px;
+}
+.pop_up_bd li{
+    border-bottom: 1px dotted red;
+}
+.wrapper img{
+    border-radius: 50%;
+    display:inline;
+    width: 16px;
+}
+/*负边距自适应布局*/
+#header{
+    background-color:darkslategrey;
+    height: 60px;
+}
+#container{
+    width: 100%;
+    float: left;
+    margin-right:-300px;
+}
+#content{
+    background-color: aqua;
+    margin-right: 300px;
+    height: 60px;
+}
+#sidebar{
+    background-color: cadetblue;
+    width: 300px;
+    float: right;
+}
+#sidebar ul {
+    list-style: none;
+}
+#footer{
+    background-color: brown;
+    clear: both;
+    height: 60px;
+}
+
+/*CSS制作圆角按钮*/
+.btn_outer_box{
+    margin-top: 40px;
+    border-bottom: 1px solid #aaa;
+    border-top: 1px solid #bbb;
+    display: inline-block;
+    cursor: pointer;
+}
+.btn_inner_box{
+    background-color: aqua;
+    border-left: 1px solid red;
+    border-right: 1px solid black;
+    margin: 0 -1px;
+    position: relative;
+}
+.btn_top_shadow{
+    background-color: blueviolet;
+    border-bottom: 0.23em solid blue;
+    height: 0.692em;
+    display: block;
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+}
+.btn_content{
+    color: #333;
+    line-height: 1.4em;
+    padding: 0 0.461em;
+    position: relative;
+    text-align: center;
+}
+
+/*三栏等高*/
+.three_wrapper{
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+.three_box p{
+    font-size: 18px;
+    line-height: 18px;
+    color: aliceblue;
+    background: #89ac10;
+    font-family: sans-serif;
+}
+.three_box{
+    width: 250px;
+    margin-left: 20px;
+    float: left;
+    display: inline;
+    padding: 20px;
+    padding-bottom: 22px;
+    margin-bottom: -20px;
+    border-radius: 5px;
+    background: #89ac10 url(img/icon.jpg) no-repeat;
+}
+.three_bottom{
+    position: absolute;
+    bottom: 0;
+    height: 20px;
+    width: 290px;
+    background: #89ac10 url(img/bottom.gif) no-repeat left bottom;
+    margin-left: -20px;
+}
