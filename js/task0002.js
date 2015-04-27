@@ -1,4 +1,5 @@
 var hd = document.getElementById("a");
+var list = document.getElementById("list");
 console.log(b.parentNode);
 var newclass = hd.className;
 function addClass(element,newClassName) {
@@ -69,64 +70,111 @@ function $(selector){
 
 //可以通过id获取DOM对象，通过#标示
 console.log(document.getElementsByName("div"));
-console.log($("[title]"));
+console.log($("#list"));
 
 //继续封装自己的小jQuery库
-function $.on(element,event,listener){
-	//your implement
-	if(element.addEventListener){
-		element.addEventListener(event,listener,false);
-	}else if(element.attachEvent){
-		element.attachEvent('on'+event,listener)
-	}else{
-		element['on'+event] = listener;
-	}	
-}
+
 //例如：
 function clicklistener(event){
 	console.log(event);
 }
-//addEvent($("#b"),"click",clicklistener);
-
-//移除element对象对于event事件发生时执行listener的响应，当listener为空时，移除所有响应函数
-function $.un(element,event,listener){
-	//your implement
-	if(element.removeEventListener){
-		element.removeEventListener(event,listener,false);
-	}else if(element.detachEvent){
-		element.detachEvent('on'+event,listener)
-	}else{
+//将函数和$做一下结合，把他们变成$对象的一些方法
+var $$={
+    on:function addEvent(element,event,listener){
+        //your implement
+	    if(element.addEventListener){
+		    element.addEventListener(event,listener,false);
+	    }else if(element.attachEvent){
+		    element.attachEvent('on'+event,listener)
+	    }else{
+		    element['on'+event] = listener;
+	    }	
+    },
+    //移除element对象对于event事件发生时执行listener的响应，当listener为空时，移除所有响应函数
+    un:function removeEvent(element,event,listener){
+	    //your implement
+	    if(element.removeEventListener){
+		    element.removeEventListener(event,listener,false);
+	    }else if(element.detachEvent){
+		    element.detachEvent('on'+event,listener)
+	    }else{
 		element['on'+event] = null;
-	}
+	    }
+    },
+    //实现click事件的绑定
+    click:function addClickEvent(element,listener){
+	    //your implement
+	    element.onclick = listener;
+    },
+    //实现对于按Enter键时的事件绑定
+    enter:function addEnterEvent(element,listener){
+	    //your implement
+	    if(element.keyCode == 13){
+	    	listener();
+	    }
+    }  
 }
-
-//实现click事件的绑定
-function $.click(element,listener){
-	//your implement
-	element.onclick = listener;
-}
-	
-//实现对于按Enter键时的事件绑定
-function $.enter(element,listener){
-	//your implement
-	if(element.keyCode == 13){
-		listener();
-	}
-}
-function renderList(){
-	$("#list").innerHTML = '<li>new item</li>';
-}
-function init(){
-	each($("#list").getElementsByTagName('li'),function(item){
-		$.click(item,clickListener);
-	});
-	$.click($("#btn"),renderList);
-}
-init();
+//$$.on($('#list'),"click",clicklistener);
 function delegateEvent(element,tag,eventName,listener){
-	//your implement
+    //your implement
+    element.onclick = function(){
+        var e = arguments[0]||window.event,
+            target = e.srcElement ? e.srcElement : e.target;
+            listener(target);
+            return false;
+    }
+}
+$$.delegate = delegateEvent;
+$$.delegate($('#list'),"li","onclick",clicklistener);
+
+//判断是否为IE浏览器，返回-1或者版本号
+function isIE(){
+    //your implement
+    var result = (!+[1,])?navigator.appVersion : -1;
+    console.log(result);
+}
+isIE();
+//设置cookie
+function setCookie(cookieName,cookieValue,expiredays){
+    //your implement
+    var exdate = new Date();
+    exdate.setDate(exdate.getDate()+expiredays);
+    document.cookie = cookieName + "=" + escape(cookieValue) +
+        ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString())
 }
 
-$.delegate = delegateEvent;
+//获取cookie值
+function getCookie(cookieName){
+    //your implement
+    if(document.cookie.length > 0){
+        c_start = document.cookie.indexOf(cookieName + "=")
+        if (c_start != -1){
+            c_start = c_start + cookieName.length+1;
+            c_end = document.cookie.indexOf(";",c_start);
+            if(c_end == -1){
+                c_end = document.cookie.length;
+            }
+            return unescape(document.cookie.substring(c_start,c_end))
+        }
+    }
+    return "";
+}
+console.log(getCookie("candy"));
 
-$.delegate($("#list"),"li","click",clickHandle);
+//学习Ajax,并尝试自己封装一个Ajax方法
+function ajax(url,options){
+    //your implement
+}
+//使用示例：
+ajax(
+    'http://localhost:8080/server/ajaxtest',
+    {
+        data:{
+            name: 'simon',
+            password: '123456'
+        },
+        onsuccess: function(responseText,xhr){
+            consloe.log(responseText);
+        }
+    }
+);
