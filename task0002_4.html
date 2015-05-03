@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>autoComplete</title>
+<style type="text/css">
+.autoComplete {margin:8px;position:relative;float:left;}
+.autoComplete input {width:200px;height:25px;margin:0;padding:0;line-height:25px;}
+.autoComplete ul {z-index:-12;padding:0px;margin:0px;border:1px #333 solid;width:200px;background:white;display:none;position:absolute;left:0;top:28px;*margin-left:9px;*margin-top:2px;margin-top:1px\0;}
+.autoComplete li {list-style:none;}
+.autoComplete li a {display:block;color:#000;text-decoration:none;padding:1px 0 1px 5px;_width:97%;}
+.autoComplete li a:hover {color:#000;background:#ccc;border:none;}
+</style>
+	</head>
+    <body><!-- 这所以使用这么多的z-index是因为ie6和ie7的问题 -->
+        <div>
+        <div class="autoComplete" style="z-index:19"> <input value="input" /> <ul><li></li></ul> </div>
+        <div class="autoComplete" style="z-index:18"> <input value="input" /> <ul><li></li></ul> </div>
+        <div class="autoComplete" style="z-index:17"> <input value="input" /> <ul><li></li></ul> </div>
+        <div class="autoComplete" style="z-index:16"> <input value="input" /> <ul><li></li></ul> </div>
+        <div class="autoComplete" style="z-index:15"> <input value="input" /> <ul><li></li></ul> </div>
+        <div class="autoComplete" style="z-index:14"> <input value="input" /> <ul><li></li></ul> </div>
+        <div class="autoComplete" style="z-index:13"> <input value="input" /> <ul><li></li></ul> </div>
+        <div class="autoComplete" style="z-index:12"> <input value="input" /> <ul><li></li></ul> </div>
+        <div class="autoComplete" style="z-index:11"> <input value="input" /> <ul><li></li></ul> </div>
+        <div class="autoComplete" style="z-index:10"> <input value="input" /> <ul><li></li></ul> </div>
+        <div class="autoComplete" style="z-index:9"> <input value="input" /> <ul><li></li></ul> </div>
+        <div class="autoComplete" style="z-index:8"> <input value="input" /> <ul><li></li></ul> </div>
+        <div class="autoComplete" style="z-index:7"> <input value="input" /> <ul><li></li></ul> </div>
+        <div class="autoComplete" style="z-index:6"> <input value="input" /> <ul><li></li></ul> </div>
+        <div class="autoComplete" style="z-index:5"> <input value="input" /> <ul><li></li></ul> </div>
+        <div class="autoComplete" style="z-index:4"> <input value="input" /> <ul><li></li></ul> </div>
+        <div class="autoComplete" style="z-index:3"> <input value="input" /> <ul><li></li></ul> </div>
+        <div class="autoComplete" style="z-index:2"> <input value="input" /> <ul><li></li></ul> </div>
+        <div class="autoComplete" style="z-index:1"> <input value="input" /> <ul><li></li></ul> </div>
+        <div class="autoComplete" style="z-index:0"> <input value="input" /> <ul><li></li></ul> </div>
+        <div style="clear:both;"></div>
+        </div>
+        <div style="border:3px red double;margin:15px;padding:5px;">
+            <h3 style="line-height:10px;">Tip:</h3>
+            <ul>
+                <li>输入0、1，2会得到提示。</li>
+                <li>用鼠标或上下键可以选择提示。</li>
+                <li>选择点击鼠标或点回车可以选择选项。</li>
+                <li>可以修改调用处，使各个输入框提示不同内容。</li>
+            </ul>
+        </div>
+        <script src="js/task0002_4.js"></script>
+	</body>
+</html>
